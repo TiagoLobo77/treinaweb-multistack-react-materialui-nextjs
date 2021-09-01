@@ -1,14 +1,16 @@
-import "./App.css";
-import Contador from "./components/MeuComponente/Contador";
-import ListaCursos from "./components/ListaCursos/ListaCursos";
+import { useEffect } from "react";
+import useOnlineStatus from "./data/hooks/useOnlineStatus";
 
 function App() {
-  return (
-    <div>
-      Olá <span> abc </span>
-      <ListaCursos />
-    </div>
-  );
+  const isOnline = useOnlineStatus();
+
+  useEffect(() => {
+    if (!isOnline) {
+      alert("Sua conexão caiu!");
+    }
+  }, [isOnline]);
+
+  return <div>{isOnline ? "Você esta Online" : "Você está desconectado!"}</div>;
 }
 
 export default App;
