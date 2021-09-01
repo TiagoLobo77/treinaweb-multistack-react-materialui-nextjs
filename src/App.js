@@ -1,8 +1,8 @@
 import { useEffect } from "react";
 import useOnlineStatus from "./data/hooks/useOnlineStatus";
-import { Button } from "@material-ui/core";
 import { ThemeProvider } from "@material-ui/core/styles";
 import theme from "./ui/themes/theme";
+import Contador from "./components/MeuComponente/Contador";
 
 function App() {
   const isOnline = useOnlineStatus();
@@ -16,8 +16,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <div>
-        {isOnline ? "Você esta Online" : "Você está desconectado!"}
-        <Button variant={"contained"}>Clique Aqui</Button>
+        <Contador />
       </div>
     </ThemeProvider>
   );
